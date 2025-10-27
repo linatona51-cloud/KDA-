@@ -1,11 +1,185 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KDA School Achievements Platform</title>
+  <style>
+    * {margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif;}
+    body {background: #f8fafc; color: #1e293b;}
+    header {background: #ffffff; box-shadow: 0 2px 4px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 100;}
+    .container {max-width: 1100px; margin: auto; padding: 20px;}
+    nav {display: flex; justify-content: space-between; align-items: center;}
+    .logo {display: flex; align-items: center; gap: 10px; font-weight: bold; font-size: 1.2rem; color: #1e3a8a;}
+    nav ul {display: flex; gap: 20px; list-style: none;}
+    nav a {text-decoration: none; color: #334155; font-weight: 500; transition: 0.2s;}
+    nav a:hover {color: #2563eb;}
+    .hero {text-align: center; padding: 80px 20px; background: linear-gradient(to right, #2563eb, #38bdf8); color: white;}
+    .hero h1 {font-size: 2.5rem; margin-bottom: 15px;}
+    .hero p {font-size: 1.1rem; max-width: 700px; margin: auto;}
+    .section {padding: 60px 20px;}
+    .section h2 {text-align: center; font-size: 2rem; color: #1e3a8a; margin-bottom: 30px;}
+    .achievements {display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;}
+    .card {background: white; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); overflow: hidden; transition: transform 0.2s;}
+    .card:hover {transform: translateY(-5px);}
+    .card img {width: 100%; height: 180px; object-fit: cover;}
+    .card-content {padding: 15px;}
+    .card-content h3 {font-size: 1.2rem; color: #1e3a8a;}
+    .card-content p {font-size: 0.95rem; color: #475569; margin-top: 5px;}
+    .profile-grid {display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;}
+    .profile {background: white; border-radius: 10px; padding: 20px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.1);}
+    .profile img {width: 90px; height: 90px; border-radius: 50%; margin-bottom: 10px;}
+    .profile h4 {font-size: 1rem; color: #1e3a8a;}
+    .gallery {display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px;}
+    .gallery img, .gallery video {width: 100%; border-radius: 8px;}
+    .news {display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;}
+    .news-item {background: white; padding: 20px; border-radius: 10px; box-shadow: 0 2px 6px rgba(0,0,0,0.1);}
+    .news-item h4 {color: #1e3a8a; margin-bottom: 10px;}
+    .search-box {text-align: center; margin-bottom: 40px;}
+    .search-box input {padding: 10px 15px; width: 80%; max-width: 400px; border: 1px solid #cbd5e1; border-radius: 8px;}
+    footer {background: #1e3a8a; color: white; text-align: center; padding: 20px;}
+    .admin {background: #ffffff; padding: 40px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);}
+    .admin h3 {color: #1e3a8a; margin-bottom: 10px;}
+    .admin input, .admin textarea {width: 100%; padding: 10px; margin: 8px 0; border: 1px solid #cbd5e1; border-radius: 6px;}
+    .admin button {background: #2563eb; color: white; padding: 10px 15px; border: none; border-radius: 6px; cursor: pointer;}
+    .admin button:hover {background: #1e40af;}
+  </style>
 </head>
+
 <body>
-    
+
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <nav>
+        <div class="logo">
+          <span>🏫</span> KDA Solution
+        </div>
+        <ul>
+          <li><a href="#achievements">Achievements</a></li>
+          <li><a href="#profiles">Students</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#news">News</a></li>
+          <li><a href="#admin">Admin Panel</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <h1>Celebrating Student Excellence</h1>
+    <p>KDA Solution’s School Achievement Platform empowers schools to showcase academic, sports, and creative milestones — inspiring pride and motivation.</p>
+  </section>
+
+  <!-- Achievements -->
+  <section id="achievements" class="section">
+    <h2>Recent Achievements</h2>
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="Search achievements..." onkeyup="filterAchievements()">
+    </div>
+    <div class="container achievements" id="achievementList">
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1600267175161-c8e47cde1220" alt="">
+        <div class="card-content">
+          <h3>Math Olympiad Champion</h3>
+          <p>John Mwangi (Grade 10) won the regional Math Olympiad 2025.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70" alt="">
+        <div class="card-content">
+          <h3>Best Art Exhibition</h3>
+          <p>Mary Achieng’s artwork was selected for the National Youth Art Showcase.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1598970434795-0c54fe7c0648" alt="">
+        <div class="card-content">
+          <h3>Football Team Victory</h3>
+          <p>The school football team won the interschool championship finals.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Student Profiles -->
+  <section id="profiles" class="section">
+    <h2>Student Profiles</h2>
+    <div class="container profile-grid">
+      <div class="profile">
+        <img src="https://randomuser.me/api/portraits/men/31.jpg" alt="">
+        <h4>John Mwangi</h4>
+        <p>Math Olympiad Winner</p>
+      </div>
+      <div class="profile">
+        <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="">
+        <h4>Mary Achieng</h4>
+        <p>National Art Finalist</p>
+      </div>
+      <div class="profile">
+        <img src="https://randomuser.me/api/portraits/men/18.jpg" alt="">
+        <h4>Kevin Omondi</h4>
+        <p>Football Captain</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section id="gallery" class="section">
+    <h2>Photo & Video Gallery</h2>
+    <div class="container gallery">
+      <img src="https://images.unsplash.com/photo-1596495577886-d920f1fb7238" alt="">
+      <img src="https://images.unsplash.com/photo-1555529669-63c823b618b4" alt="">
+      <video controls>
+        <source src="https://cdn.pixabay.com/video/2020/05/02/37955-416421445_large.mp4" type="video/mp4">
+      </video>
+    </div>
+  </section>
+
+  <!-- News -->
+  <section id="news" class="section">
+    <h2>News & Updates</h2>
+    <div class="container news">
+      <div class="news-item">
+        <h4>Term 2 Awards Ceremony</h4>
+        <p>The school will hold the Awards Ceremony on November 20th to honor top achievers.</p>
+      </div>
+      <div class="news-item">
+        <h4>New Sports Complex</h4>
+        <p>Our new sports facility opens next term to support athletics, basketball, and football.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Admin Panel -->
+  <section id="admin" class="section">
+    <h2>Admin Panel (Demo)</h2>
+    <div class="container admin">
+      <h3>Post New Achievement</h3>
+      <input type="text" placeholder="Student Name">
+      <input type="text" placeholder="Title of Achievement">
+      <textarea placeholder="Description"></textarea>
+      <input type="url" placeholder="Image URL">
+      <button onclick="alert('Achievement posted successfully!')">Post Achievement</button>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 KDA Solution — Empowering Education Through Recognition</p>
+  </footer>
+
+  <!-- JS -->
+  <script>
+    function filterAchievements() {
+      const input = document.getElementById('searchInput').value.toLowerCase();
+      const cards = document.querySelectorAll('#achievementList .card');
+      cards.forEach(card => {
+        const text = card.innerText.toLowerCase();
+        card.style.display = text.includes(input) ? '' : 'none';
+      });
+    }
+  </script>
 </body>
 </html>
