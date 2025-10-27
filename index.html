@@ -1,185 +1,297 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>KDA School Achievements Platform</title>
-  <style>
-    * {margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif;}
-    body {background: #f8fafc; color: #1e293b;}
-    header {background: #ffffff; box-shadow: 0 2px 4px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 100;}
-    .container {max-width: 1100px; margin: auto; padding: 20px;}
-    nav {display: flex; justify-content: space-between; align-items: center;}
-    .logo {display: flex; align-items: center; gap: 10px; font-weight: bold; font-size: 1.2rem; color: #1e3a8a;}
-    nav ul {display: flex; gap: 20px; list-style: none;}
-    nav a {text-decoration: none; color: #334155; font-weight: 500; transition: 0.2s;}
-    nav a:hover {color: #2563eb;}
-    .hero {text-align: center; padding: 80px 20px; background: linear-gradient(to right, #2563eb, #38bdf8); color: white;}
-    .hero h1 {font-size: 2.5rem; margin-bottom: 15px;}
-    .hero p {font-size: 1.1rem; max-width: 700px; margin: auto;}
-    .section {padding: 60px 20px;}
-    .section h2 {text-align: center; font-size: 2rem; color: #1e3a8a; margin-bottom: 30px;}
-    .achievements {display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;}
-    .card {background: white; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); overflow: hidden; transition: transform 0.2s;}
-    .card:hover {transform: translateY(-5px);}
-    .card img {width: 100%; height: 180px; object-fit: cover;}
-    .card-content {padding: 15px;}
-    .card-content h3 {font-size: 1.2rem; color: #1e3a8a;}
-    .card-content p {font-size: 0.95rem; color: #475569; margin-top: 5px;}
-    .profile-grid {display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;}
-    .profile {background: white; border-radius: 10px; padding: 20px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.1);}
-    .profile img {width: 90px; height: 90px; border-radius: 50%; margin-bottom: 10px;}
-    .profile h4 {font-size: 1rem; color: #1e3a8a;}
-    .gallery {display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px;}
-    .gallery img, .gallery video {width: 100%; border-radius: 8px;}
-    .news {display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;}
-    .news-item {background: white; padding: 20px; border-radius: 10px; box-shadow: 0 2px 6px rgba(0,0,0,0.1);}
-    .news-item h4 {color: #1e3a8a; margin-bottom: 10px;}
-    .search-box {text-align: center; margin-bottom: 40px;}
-    .search-box input {padding: 10px 15px; width: 80%; max-width: 400px; border: 1px solid #cbd5e1; border-radius: 8px;}
-    footer {background: #1e3a8a; color: white; text-align: center; padding: 20px;}
-    .admin {background: #ffffff; padding: 40px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);}
-    .admin h3 {color: #1e3a8a; margin-bottom: 10px;}
-    .admin input, .admin textarea {width: 100%; padding: 10px; margin: 8px 0; border: 1px solid #cbd5e1; border-radius: 6px;}
-    .admin button {background: #2563eb; color: white; padding: 10px 15px; border: none; border-radius: 6px; cursor: pointer;}
-    .admin button:hover {background: #1e40af;}
-  </style>
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KDA Solution School System</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
 
-<body>
-
-  <!-- Header -->
-  <header>
-    <div class="container">
-      <nav>
-        <div class="logo">
-          <span>🏫</span> KDA Solution
+  <body class="bg-slate-50 text-slate-900 antialiased">
+       <header class="bg-white shadow-sm sticky top-0 z-50">
+      <div
+        class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between"
+      >
+        <div class="flex items-center gap-4">
+          <div
+            class="w-11 h-11 rounded-2xl bg-gradient-to-br from-indigo-600 to-cyan-400 flex items-center justify-center text-white font-bold"
+          >
+            KDA
+          </div>
+          <div>
+            <h1 class="font-semibold">KDA Solution</h1>
+            <p class="text-sm text-slate-500">
+              Smart school systems for modern education
+            </p>
+          </div>
         </div>
-        <ul>
-          <li><a href="#achievements">Achievements</a></li>
-          <li><a href="#profiles">Students</a></li>
-          <li><a href="#gallery">Gallery</a></li>
-          <li><a href="#news">News</a></li>
-          <li><a href="#admin">Admin Panel</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
 
-  <!-- Hero -->
-  <section class="hero">
-    <h1>Celebrating Student Excellence</h1>
-    <p>KDA Solution’s School Achievement Platform empowers schools to showcase academic, sports, and creative milestones — inspiring pride and motivation.</p>
-  </section>
+        <nav class="hidden md:flex items-center gap-6 text-sm">
+          <a href="#features" class="hover:text-indigo-600">Features</a>
+          <a href="#pricing" class="hover:text-indigo-600">Pricing</a>
+          <a href="#about" class="hover:text-indigo-600">About</a>
+          <a href="#contact" class="hover:text-indigo-600">Contact</a>
+          <button
+            onclick="toggleModal('loginModal', true)"
+            class="ml-4 px-4 py-2 rounded-lg border border-slate-200 bg-white hover:shadow-sm"
+          >
+            Login
+          </button>
+          <button
+            onclick="toggleModal('registerModal', true)"
+            class="ml-2 px-4 py-2 rounded-lg bg-indigo-600 text-white hover:bg-indigo-700"
+          >
+            Get Started
+          </button>
+        </nav>
+      </div>
+    </header>
 
-  <!-- Achievements -->
-  <section id="achievements" class="section">
-    <h2>Recent Achievements</h2>
-    <div class="search-box">
-      <input type="text" id="searchInput" placeholder="Search achievements..." onkeyup="filterAchievements()">
-    </div>
-    <div class="container achievements" id="achievementList">
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1600267175161-c8e47cde1220" alt="">
-        <div class="card-content">
-          <h3>Math Olympiad Champion</h3>
-          <p>John Mwangi (Grade 10) won the regional Math Olympiad 2025.</p>
+        <section
+      class="max-w-7xl mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-2 gap-10 items-center"
+    >
+      <div>
+        <h2 class="text-4xl md:text-5xl font-extrabold leading-tight">
+          Transform your school operations with
+          <span class="text-indigo-600">KDA School System</span>
+        </h2>
+        <p class="mt-6 text-slate-600 max-w-xl">
+          An all-in-one platform for admissions, attendance, grading, parent
+          communication, and analytics — built to simplify administration and
+          boost outcomes.
+        </p>
+
+        <div class="mt-8 flex gap-4">
+          <button
+            onclick="toggleModal('registerModal', true)"
+            class="px-6 py-3 rounded-lg bg-indigo-600 text-white font-medium hover:bg-indigo-700"
+          >
+            Start Free Trial
+          </button>
+          <a
+            href="#features"
+            class="px-6 py-3 rounded-lg border border-slate-200 bg-white"
+            >View Features</a
+          >
         </div>
       </div>
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70" alt="">
-        <div class="card-content">
-          <h3>Best Art Exhibition</h3>
-          <p>Mary Achieng’s artwork was selected for the National Youth Art Showcase.</p>
+
+      <div class="bg-white rounded-2xl shadow p-6">
+        <h3 class="font-semibold text-lg mb-3">Live Demo: Teacher Dashboard</h3>
+        <p class="text-sm text-slate-500 mb-4">
+          Quick peek at attendance and today's schedule
+        </p>
+        <div class="flex items-center justify-between mb-4">
+          <div>
+            <p class="text-sm text-slate-500">Attendance</p>
+            <p class="text-2xl font-semibold">92% Present</p>
+          </div>
+          <div class="text-right">
+            <p class="text-sm text-slate-500">Classes</p>
+            <p class="text-2xl font-semibold">6 Today</p>
+          </div>
+        </div>
+        <div class="border-t pt-4">
+          <p class="text-sm text-slate-500">Next: Mathematics</p>
+          <p class="mt-2 font-medium">10:00 AM - 11:00 AM • Room 204</p>
         </div>
       </div>
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1598970434795-0c54fe7c0648" alt="">
-        <div class="card-content">
-          <h3>Football Team Victory</h3>
-          <p>The school football team won the interschool championship finals.</p>
+    </section>
+
+    <section id="features" class="bg-gradient-to-b from-white to-slate-50 py-16">
+      <div class="max-w-7xl mx-auto px-6">
+        <h3 class="text-3xl font-bold">Features built for schools</h3>
+        <p class="mt-2 text-slate-600">
+          Everything your staff, students, and parents need — in one unified
+          system.
+        </p>
+
+        <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="bg-white p-6 rounded-2xl shadow hover:shadow-md">
+            <h4 class="font-semibold">Admissions & Enrollment</h4>
+            <p class="mt-2 text-sm text-slate-600">
+              Streamlined applications, document uploads, and seat management.
+            </p>
+          </div>
+
+          <div class="bg-white p-6 rounded-2xl shadow hover:shadow-md">
+            <h4 class="font-semibold">Attendance & Timetables</h4>
+            <p class="mt-2 text-sm text-slate-600">
+              Easy attendance, automated notifications, and customizable
+              timetables.
+            </p>
+          </div>
+
+          <div class="bg-white p-6 rounded-2xl shadow hover:shadow-md">
+            <h4 class="font-semibold">Grades & Reports</h4>
+            <p class="mt-2 text-sm text-slate-600">
+              Gradebook, progress tracking, and printable report cards.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+        <section id="pricing" class="max-w-7xl mx-auto px-6 py-16">
+      <h3 class="text-3xl font-bold">Pricing Plans</h3>
+      <p class="mt-2 text-slate-600">
+        Flexible plans for schools of every size.
+      </p>
+
+      <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-white p-6 rounded-2xl shadow">
+          <h4 class="font-semibold">Starter</h4>
+          <p class="mt-4 text-3xl font-bold">Free</p>
+          <ul class="mt-4 space-y-2 text-slate-600 text-sm">
+            <li>• Up to 100 students</li>
+            <li>• Basic attendance</li>
+            <li>• Community support</li>
+          </ul>
+        </div>
+
+        <div class="bg-indigo-600 text-white p-6 rounded-2xl shadow">
+          <h4 class="font-semibold">Pro</h4>
+          <p class="mt-4 text-3xl font-bold">$149/mo</p>
+          <ul class="mt-4 space-y-2 text-white/90 text-sm">
+            <li>• Unlimited students</li>
+            <li>• Gradebook & reports</li>
+            <li>• Priority support</li>
+          </ul>
+        </div>
+
+        <div class="bg-white p-6 rounded-2xl shadow">
+          <h4 class="font-semibold">Enterprise</h4>
+          <p class="mt-4 text-3xl font-bold">Custom</p>
+          <ul class="mt-4 space-y-2 text-slate-600 text-sm">
+            <li>• SSO & API access</li>
+            <li>• Dedicated manager</li>
+            <li>• Training & setup</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="bg-slate-50 py-16">
+      <div class="max-w-7xl mx-auto px-6">
+        <h3 class="text-2xl font-bold">Get in touch</h3>
+        <p class="text-slate-600 mt-2">
+          Interested in KDA School System? Fill out the form below.
+        </p>
+
+        <form class="mt-8 max-w-xl bg-white p-6 rounded-2xl shadow space-y-4">
+          <input
+            type="text"
+            placeholder="Full name"
+            class="w-full border p-2 rounded"
+          />
+          <input
+            type="email"
+            placeholder="Email"
+            class="w-full border p-2 rounded"
+          />
+          <textarea
+            placeholder="Your message"
+            class="w-full border p-2 rounded"
+          ></textarea>
+          <button
+            type="submit"
+            class="px-5 py-2 bg-indigo-600 text-white rounded-lg"
+          >
+            Send Message
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <footer class="border-t bg-white mt-12">
+      <div
+        class="max-w-7xl mx-auto px-6 py-8 flex flex-col md:flex-row items-center justify-between gap-4"
+      >
+        <p class="text-sm text-slate-600">
+          © <span id="year"></span> KDA Solution — All rights reserved.
+        </p>
+        <div class="flex gap-4 text-sm text-slate-600">
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+          <a href="#">Support</a>
+        </div>
+      </div>
+    </footer>
+
+    <div
+      id="loginModal"
+      class="fixed inset-0 hidden items-center justify-center bg-black/40 z-50"
+    >
+      <div class="bg-white p-6 rounded-2xl w-80 shadow-lg">
+        <h3 class="font-semibold mb-4">Login to KDA</h3>
+        <input type="email" placeholder="Email" class="border p-2 w-full mb-2" />
+        <input
+          type="password"
+          placeholder="Password"
+          class="border p-2 w-full mb-4"
+        />
+        <div class="flex gap-2">
+          <button class="bg-indigo-600 text-white px-4 py-2 rounded w-full">
+            Login
+          </button>
+          <button
+            type="button"
+            onclick="toggleModal('loginModal', false)"
+            class="border px-4 py-2 rounded w-full"
+          >
+            Close
+          </button>
         </div>
       </div>
     </div>
-  </section>
 
-  <!-- Student Profiles -->
-  <section id="profiles" class="section">
-    <h2>Student Profiles</h2>
-    <div class="container profile-grid">
-      <div class="profile">
-        <img src="https://randomuser.me/api/portraits/men/31.jpg" alt="">
-        <h4>John Mwangi</h4>
-        <p>Math Olympiad Winner</p>
-      </div>
-      <div class="profile">
-        <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="">
-        <h4>Mary Achieng</h4>
-        <p>National Art Finalist</p>
-      </div>
-      <div class="profile">
-        <img src="https://randomuser.me/api/portraits/men/18.jpg" alt="">
-        <h4>Kevin Omondi</h4>
-        <p>Football Captain</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Gallery -->
-  <section id="gallery" class="section">
-    <h2>Photo & Video Gallery</h2>
-    <div class="container gallery">
-      <img src="https://images.unsplash.com/photo-1596495577886-d920f1fb7238" alt="">
-      <img src="https://images.unsplash.com/photo-1555529669-63c823b618b4" alt="">
-      <video controls>
-        <source src="https://cdn.pixabay.com/video/2020/05/02/37955-416421445_large.mp4" type="video/mp4">
-      </video>
-    </div>
-  </section>
-
-  <!-- News -->
-  <section id="news" class="section">
-    <h2>News & Updates</h2>
-    <div class="container news">
-      <div class="news-item">
-        <h4>Term 2 Awards Ceremony</h4>
-        <p>The school will hold the Awards Ceremony on November 20th to honor top achievers.</p>
-      </div>
-      <div class="news-item">
-        <h4>New Sports Complex</h4>
-        <p>Our new sports facility opens next term to support athletics, basketball, and football.</p>
+        <div
+      id="registerModal"
+      class="fixed inset-0 hidden items-center justify-center bg-black/40 z-50"
+    >
+      <div class="bg-white p-6 rounded-2xl w-80 shadow-lg">
+        <h3 class="font-semibold mb-4">Create an account</h3>
+        <input type="text" placeholder="Full Name" class="border p-2 w-full mb-2" />
+        <input
+          type="email"
+          placeholder="Email"
+          class="border p-2 w-full mb-2"
+        />
+        <input
+          type="password"
+          placeholder="Password"
+          class="border p-2 w-full mb-4"
+        />
+        <div class="flex gap-2">
+          <button class="bg-indigo-600 text-white px-4 py-2 rounded w-full">
+            Register
+          </button>
+          <button
+            type="button"
+            onclick="toggleModal('registerModal', false)"
+            class="border px-4 py-2 rounded w-full"
+          >
+            Close
+          </button>
+        </div>
       </div>
     </div>
-  </section>
 
-  <!-- Admin Panel -->
-  <section id="admin" class="section">
-    <h2>Admin Panel (Demo)</h2>
-    <div class="container admin">
-      <h3>Post New Achievement</h3>
-      <input type="text" placeholder="Student Name">
-      <input type="text" placeholder="Title of Achievement">
-      <textarea placeholder="Description"></textarea>
-      <input type="url" placeholder="Image URL">
-      <button onclick="alert('Achievement posted successfully!')">Post Achievement</button>
-    </div>
-  </section>
+    <script>
+          function toggleModal(id, show) {
+        const modal = document.getElementById(id);
+        if (show) {
+          modal.classList.remove('hidden');
+          modal.classList.add('flex');
+        } else {
+          modal.classList.add('hidden');
+          modal.classList.remove('flex');
+        }
+      }
 
-  <!-- Footer -->
-  <footer>
-    <p>© 2025 KDA Solution — Empowering Education Through Recognition</p>
-  </footer>
-
-  <!-- JS -->
-  <script>
-    function filterAchievements() {
-      const input = document.getElementById('searchInput').value.toLowerCase();
-      const cards = document.querySelectorAll('#achievementList .card');
-      cards.forEach(card => {
-        const text = card.innerText.toLowerCase();
-        card.style.display = text.includes(input) ? '' : 'none';
-      });
-    }
-  </script>
-</body>
+      // Set current year
+      document.getElementById('2025').textContent = new Date(20).getFullYear(2026);
+    </script>
+  </body>
 </html>
+
